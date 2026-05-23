@@ -78,7 +78,7 @@ I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of 
 <!-- SECTION E: GITHUB STATS -->
 ## 📊 GitHub Stats
 
-> ⚠️ **Replace `YOUR_GITHUB_USERNAME` with your actual GitHub username in all stat URLs below.**
+> 
 <div align="center">
 <img width="49%" src="https://github-readme-stats.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" />
 <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=karim2762&theme=tokyonight&hide_border=true" />
