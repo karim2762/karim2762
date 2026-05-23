@@ -78,15 +78,20 @@ I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of 
 <!-- SECTION E: GITHUB STATS -->
 ## 📊 GitHub Stats
 
+```html
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&cache_seconds=1800" height="180" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=karim2762&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&cache_seconds=1800" height="180" alt="Top Languages" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats"/>
+
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=karim2762&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages"/>
 </div>
-<br/>
+
+<br>
+
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=karim2762&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com?user=karim2762&theme=tokyonight&hide_border=true" alt="GitHub Streak"/>
 </div>
----
+```
+
 
 
 
