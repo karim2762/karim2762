@@ -1,127 +1,136 @@
+<div align="center">
+
 <!-- VISITOR COUNTER -->
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=kexer144&label=Profile%20Views&color=0e75b6&style=for-the-badge" alt="Profile Views" />
+<img src="https://komarev.com/ghpvc/?username=YOUR_GITHUB_USERNAME&label=Profile+Views&color=blueviolet&style=flat-square" alt="Profile Views" />
+
+<br/><br/>
+
+<!-- ANIMATED HEADER -->
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&duration=3000&pause=800&color=6C63FF&center=true&vCenter=true&multiline=true&width=600&height=80&lines=Hi+%F0%9F%91%8B+I'm+Kareem+Basha;Full+Stack+Developer+%F0%9F%9A%80" alt="Typing SVG" />
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=2500&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&lines=Python+%7C+Java+%7C+HTML+%7C+CSS+%7C+SQL;Building+for+the+web+%E2%9C%A8+Creating+for+the+world+%F0%9F%8C%8D;2+Years+of+crafting+digital+experiences" alt="Tagline SVG" />
+
 </div>
 
 ---
 
-<!-- SECTION A: ANIMATED HEADER -->
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&pause=1000&color=00D9FF&center=true&vCenter=true&width=700&lines=Hey+there%2C+I'm+Kareem+Basha+%F0%9F%91%8B;Full+Stack+Developer+%F0%9F%9A%80;Building+Cool+Stuff+%F0%9F%94%A5;Content+Creator+%7C+Code+%7C+Community" alt="Typing SVG" />
-</div>
+## 👨‍💻 About Me
 
-<div align="center">
-  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" />
-  <strong>Welcome to my GitHub!</strong>
-  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" />
-</div>
+```python
+kareem = {
+    "role"      : "Full Stack Developer",
+    "experience": "2 years",
+    "location"  : "India 🇮🇳",
+    "learning"  : ["System Design", "Cloud", "DSA"],
+    "hobbies"   : ["Coding 💻", "Creating Content 🎬", "Building Communities 🌐"],
+    "portfolio" : "https://kexer.vercel.app/"
+}
+```
 
----
-
-<!-- SECTION B: ABOUT ME -->
-## 🧠 About Me
-
-> **"I don't just write code — I craft experiences."**
-
-I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of hands-on experience building web applications and solving real-world problems. Beyond the code, I create content for thousands of followers across YouTube and Instagram — bridging tech and creativity.
-
-- 🔭 Currently working on full-stack web projects with Python & Java backends
-- 🎥 Running **[@kexer144](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe)** on YouTube — breaking down tech for **3,480+** subscribers
-- 📸 Growing a dev + lifestyle community on **Instagram** with **38,820+** followers
-- 💡 I believe clean code + great UI = unstoppable products
-- 🌐 Check out my work at **[kexer.vercel.app](https://kexer.vercel.app/)**
-- ⚡ Fun fact: I can debug code and film a YouTube video in the same day 🎬
+🔥 Passionate developer who ships products **and** grows communities.
+🎬 Content creator with **3,480+ YouTube subscribers** and **38,820+ Instagram followers**.
+🚀 Currently building, breaking, and iterating on full-stack web applications.
+💡 Believer in clean code, great UI, and shipping fast.
+🎯 Goal: Build something 1 million people use.
 
 ---
 
-<!-- SECTION C: TECH STACK -->
 ## 🛠️ Tech Stack
 
-### 🎨 Frontend
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+**Frontend**
 
-### ⚙️ Backend
+![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+
+**Backend**
+
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 
-### 🗄️ Database
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![DBMS](https://img.shields.io/badge/DBMS-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+**Database**
 
-### 📐 DSA & Algorithms
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
-![DSA](https://img.shields.io/badge/Data_Structures_%26_Algorithms-FF6F00?style=for-the-badge&logo=thealgorithms&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 
-### 🔧 Tools & Platforms
+**CS Fundamentals**
+
+![DSA](https://img.shields.io/badge/DSA%20in%20C%20%26%20Python-00599C?style=for-the-badge&logo=c&logoColor=white)
+![DBMS](https://img.shields.io/badge/DBMS-FF6B35?style=for-the-badge&logo=databricks&logoColor=white)
+
+**Tools**
+
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ---
 
-<!-- SECTION D: SOCIAL MEDIA -->
-## 🌐 Find Me Online
-
-<div align="center">
-
-[![YouTube](https://img.shields.io/badge/YouTube-3.48K%20Subs-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe)
-[![Instagram](https://img.shields.io/badge/Instagram-38.8K%20Followers-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/kexer.vx)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://in.linkedin.com/in/karim-basha-b054a43a4)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Now-00D9FF?style=for-the-badge&logo=vercel&logoColor=white)](https://kexer.vercel.app/)
-
-</div>
-
----
-
-<!-- SECTION E: GITHUB STATS -->
 ## 📊 GitHub Stats
 
+> ⚠️ **Replace `YOUR_GITHUB_USERNAME` with your actual GitHub username in all stat URLs below.**
+
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=kexer144&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" height="180" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kexer144&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" height="180" alt="Top Languages" />
+
+<img width="49%" src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" />
+<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_GITHUB_USERNAME&theme=tokyonight&hide_border=true" />
+
 </div>
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=kexer144&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+
+<img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" />
+
 </div>
 
 ---
 
-<!-- SECTION F: GITHUB TROPHIES -->
 ## 🏆 GitHub Trophies
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=kexer144&theme=darkhub&no-frame=true&no-bg=false&margin-w=6&row=1" alt="GitHub Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=YOUR_GITHUB_USERNAME&theme=darkhub&no-frame=true&no-bg=true&margin-w=6&column=7" alt="GitHub Trophies" />
 </div>
 
 ---
 
-<!-- SECTION H: FOOTER / LET'S CONNECT -->
-## 🤝 Let's Connect
+## 🌐 Connect With Me
 
 <div align="center">
 
-I'm always open to collaborating on exciting projects, creative ideas, or just geeking out over tech.
+[![YouTube](https://img.shields.io/badge/YouTube-3%2C480+Subscribers-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe)
+[![Instagram](https://img.shields.io/badge/Instagram-38%2C820+Followers-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/kexer.vx)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://in.linkedin.com/in/karim-basha-b054a43a4)
+[![Portfolio](https://img.shields.io/badge/Portfolio-kexer.vercel.app-black?style=for-the-badge&logo=vercel&logoColor=white)](https://kexer.vercel.app/)
 
-**Drop a message — let's build something great together!**
+</div>
+
+---
+
+## 📈 Contribution Graph
+
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_GITHUB_USERNAME&theme=tokyo-night&hide_border=true&area=true" alt="Contribution Graph" />
+</div>
+
+---
+
+<div align="center">
+
+### 💬 Let's Build Together
+
+*Open to collaborations, freelance projects, and cool ideas.*
+*Drop a message on any platform — I respond fast!*
 
 <br/>
 
-[![YouTube](https://img.shields.io/badge/-YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe)
-[![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/kexer.vx)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://in.linkedin.com/in/karim-basha-b054a43a4)
-[![Portfolio](https://img.shields.io/badge/-Portfolio-000000?style=flat-square&logo=vercel&logoColor=white)](https://kexer.vercel.app/)
+**"Code. Create. Grow. Repeat."** 🚀
 
 <br/>
 
 ![Wave](https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg)
 
-</div>
+*Made with ❤️ by Kareem Basha*
 
----
-
-<div align="center">
-  <sub>✨ Crafted with passion by <strong>Kareem Basha</strong> | Full Stack Developer & Content Creator</sub>
 </div>
