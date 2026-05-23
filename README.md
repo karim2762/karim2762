@@ -7,38 +7,30 @@
 
 <!-- SECTION A: ANIMATED HEADER -->
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=30&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Hey+there!+I'm+Kareem+Basha+👋;Full+Stack+Developer+💻;Content+Creator+%7C+YouTuber+🎥;Building+cool+stuff+since+2022+🚀" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&pause=1000&color=00D9FF&center=true&vCenter=true&width=700&lines=Hey+there%2C+I'm+Kareem+Basha+%F0%9F%91%8B;Full+Stack+Developer+%F0%9F%9A%80;Building+Cool+Stuff+%F0%9F%94%A5;Content+Creator+%7C+Code+%7C+Community" alt="Typing SVG" />
 </div>
 
 <div align="center">
-  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35px" alt="wave"/>
-  <strong>&nbsp;Welcome to my GitHub profile!</strong>
+  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" />
+  <strong>Welcome to my GitHub!</strong>
+  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" />
 </div>
 
 ---
 
 <!-- SECTION B: ABOUT ME -->
-## 🧑‍💻 About Me
+## 🧠 About Me
 
-```python
-kareem = {
-    "name": "Kareem Basha",
-    "role": "Full Stack Developer",
-    "experience": "2 years",
-    "location": "India 🇮🇳",
-    "content_creator": True,
-    "currently_learning": ["System Design", "Cloud Architecture"],
-    "fun_fact": "I debug with console.log and I'm proud of it 😅"
-}
-```
+> **"I don't just write code — I craft experiences."**
 
-- 🚀 **Full Stack Developer** with 2 years of hands-on experience building web apps
-- 🎥 **YouTuber** at [Kexer](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe) with **3,480+ subscribers** — sharing dev content & tutorials
-- 📸 **Instagram Creator** [@kexer.vx](https://instagram.com/kexer.vx) with **38,820+ followers**
-- 🌐 Check out my portfolio: **[kexer.vercel.app](https://kexer.vercel.app/)**
-- 💡 I love turning ideas into real products that people actually use
-- 🧠 Currently leveling up in **System Design** and **Cloud**
-- ☕ Fueled by coffee and Stack Overflow
+I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of hands-on experience building web applications and solving real-world problems. Beyond the code, I create content for thousands of followers across YouTube and Instagram — bridging tech and creativity.
+
+- 🔭 Currently working on full-stack web projects with Python & Java backends
+- 🎥 Running **[@kexer144](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe)** on YouTube — breaking down tech for **3,480+** subscribers
+- 📸 Growing a dev + lifestyle community on **Instagram** with **38,820+** followers
+- 💡 I believe clean code + great UI = unstoppable products
+- 🌐 Check out my work at **[kexer.vercel.app](https://kexer.vercel.app/)**
+- ⚡ Fun fact: I can debug code and film a YouTube video in the same day 🎬
 
 ---
 
@@ -46,32 +38,26 @@ kareem = {
 ## 🛠️ Tech Stack
 
 ### 🎨 Frontend
-<div>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
-</div>
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-### ⚙️ Backend & Languages
-<div>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
-</div>
+### ⚙️ Backend
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 
-### 🗄️ Database & CS Fundamentals
-<div>
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL"/>
-  <img src="https://img.shields.io/badge/SQL-025E8C?style=for-the-badge&logo=amazondynamodb&logoColor=white" alt="SQL"/>
-  <img src="https://img.shields.io/badge/DBMS-FF6F00?style=for-the-badge&logo=databricks&logoColor=white" alt="DBMS"/>
-  <img src="https://img.shields.io/badge/DSA%20(C%20%26%20Python)-00599C?style=for-the-badge&logo=c&logoColor=white" alt="DSA"/>
-</div>
+### 🗄️ Database
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![DBMS](https://img.shields.io/badge/DBMS-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+
+### 📐 DSA & Algorithms
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![DSA](https://img.shields.io/badge/Data_Structures_%26_Algorithms-FF6F00?style=for-the-badge&logo=thealgorithms&logoColor=white)
 
 ### 🔧 Tools & Platforms
-<div>
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"/>
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-  <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code"/>
-  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"/>
-</div>
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ---
 
@@ -80,10 +66,10 @@ kareem = {
 
 <div align="center">
 
-[![YouTube](https://img.shields.io/badge/YouTube-Kexer%20%7C%203.4K%20Subs-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe)
-[![Instagram](https://img.shields.io/badge/Instagram-%40kexer.vx%20%7C%2038.8K%20Followers-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/kexer.vx)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Karim%20Basha-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://in.linkedin.com/in/karim-basha-b054a43a4)
-[![Portfolio](https://img.shields.io/badge/Portfolio-kexer.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://kexer.vercel.app/)
+[![YouTube](https://img.shields.io/badge/YouTube-3.48K%20Subs-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe)
+[![Instagram](https://img.shields.io/badge/Instagram-38.8K%20Followers-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/kexer.vx)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://in.linkedin.com/in/karim-basha-b054a43a4)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Now-00D9FF?style=for-the-badge&logo=vercel&logoColor=white)](https://kexer.vercel.app/)
 
 </div>
 
@@ -93,15 +79,12 @@ kareem = {
 ## 📊 GitHub Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=kexer144&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" height="165"/>
-  &nbsp;&nbsp;
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kexer144&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="165"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=kexer144&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" height="180" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kexer144&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" height="180" alt="Top Languages" />
 </div>
 
-<br/>
-
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=kexer144&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com?user=kexer144&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
 </div>
 
 ---
@@ -110,39 +93,35 @@ kareem = {
 ## 🏆 GitHub Trophies
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=kexer144&theme=darkhub&no-frame=true&no-bg=true&margin-w=4&row=1" alt="GitHub Trophies"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=kexer144&theme=darkhub&no-frame=true&no-bg=false&margin-w=6&row=1" alt="GitHub Trophies" />
 </div>
 
 ---
 
-<!-- SECTION H: FOOTER -->
-## 🤝 Let's Connect!
+<!-- SECTION H: FOOTER / LET'S CONNECT -->
+## 🤝 Let's Connect
 
 <div align="center">
 
-I'm always open to collaborations, projects, or just a good tech chat. Reach out anytime!
+I'm always open to collaborating on exciting projects, creative ideas, or just geeking out over tech.
+
+**Drop a message — let's build something great together!**
 
 <br/>
 
-[![YouTube](https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=for-the-badge&logo=youtube)](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe)
-[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F?style=for-the-badge&logo=instagram)](https://instagram.com/kexer.vx)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://in.linkedin.com/in/karim-basha-b054a43a4)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-black?style=for-the-badge&logo=vercel)](https://kexer.vercel.app/)
+[![YouTube](https://img.shields.io/badge/-YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtube.com/@kexer144?si=Cu9-HmShOhdRhrhe)
+[![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/kexer.vx)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://in.linkedin.com/in/karim-basha-b054a43a4)
+[![Portfolio](https://img.shields.io/badge/-Portfolio-000000?style=flat-square&logo=vercel&logoColor=white)](https://kexer.vercel.app/)
 
 <br/>
 
-*"Code is not just syntax — it's the language of ideas made real."*
-
-<br/>
-
-⭐ **If you find my work interesting, feel free to star a repo or drop a follow!** ⭐
+![Wave](https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg)
 
 </div>
 
 ---
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=kexer144&color=00d4ff&style=flat-square&label=Total+Profile+Visits" alt="visitors"/>
-  &nbsp;&nbsp;
-  Made with ❤️ by <a href="https://kexer.vercel.app/">Kareem Basha</a>
+  <sub>✨ Crafted with passion by <strong>Kareem Basha</strong> | Full Stack Developer & Content Creator</sub>
 </div>
