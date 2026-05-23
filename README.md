@@ -77,17 +77,19 @@ I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of 
 
 <!-- SECTION E: GITHUB STATS -->
 
+```html
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight" />
+  <img width="49%" src="https://github-readme-stats-sigma-five.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight" />
 
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=karim2762&layout=compact&theme=tokyonight" />
+  <img width="49%" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=karim2762&layout=compact&theme=tokyonight" />
 </p>
 
 <p align="center">
   <img width="70%" src="https://streak-stats.demolab.com?user=karim2762&theme=tokyonight" />
 </p>
+```
 
 
 
