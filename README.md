@@ -78,22 +78,22 @@ I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of 
 <!-- SECTION E: GITHUB STATS -->
 ## 📊 GitHub Stats
 
+> ⚠️ **Replace `YOUR_GITHUB_USERNAME` with your actual GitHub username in all stat URLs below.**
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" height="180" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=karim2762&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" height="180" alt="Top Languages" />
+<img width="49%" src="https://github-readme-stats.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" />
+<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=karim2762&theme=tokyonight&hide_border=true" />
 </div>
-
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=kexer144&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+<img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=karim2762&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" />
 </div>
-
 ---
+
 
 <!-- SECTION F: GITHUB TROPHIES -->
 ## 🏆 GitHub Trophies
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=kexer144&theme=darkhub&no-frame=true&no-bg=false&margin-w=6&row=1" alt="GitHub Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=karim2762&theme=darkhub&no-frame=true&no-bg=false&margin-w=6&row=1" alt="GitHub Trophies" />
 </div>
 
 ---
