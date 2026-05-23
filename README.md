@@ -76,7 +76,7 @@ I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of 
 ---
 
 <!-- SECTION E: GITHUB STATS -->
-```md id="zpw22"
+
 ## 📊 GitHub Stats
 
 <p align="center">
@@ -88,7 +88,6 @@ I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of 
 <p align="center">
   <img width="70%" src="https://streak-stats.demolab.com?user=karim2762&theme=tokyonight" />
 </p>
-```
 
 
 
