@@ -78,7 +78,7 @@ I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of 
 <!-- SECTION E: GITHUB STATS -->
 ## 📊 GitHub Stats
 
-```html
+
 <div align="center">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats"/>
 
