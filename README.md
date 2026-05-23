@@ -76,21 +76,20 @@ I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of 
 ---
 
 <!-- SECTION E: GITHUB STATS -->
+```md id="zpw22"
 ## 📊 GitHub Stats
 
+<p align="center">
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight" />
 
-<div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=karim2762&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats"/>
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=karim2762&layout=compact&theme=tokyonight" />
+</p>
 
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=karim2762&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages"/>
-</div>
-
-<br>
-
-<div align="center">
-  <img src="https://streak-stats.demolab.com?user=karim2762&theme=tokyonight&hide_border=true" alt="GitHub Streak"/>
-</div>
+<p align="center">
+  <img width="70%" src="https://streak-stats.demolab.com?user=karim2762&theme=tokyonight" />
+</p>
 ```
+
 
 
 
