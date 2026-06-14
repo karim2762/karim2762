@@ -96,12 +96,7 @@ I'm **Kareem Basha**, a passionate **Full Stack Developer** with **2 years** of 
 
 
 
-<!-- SECTION F: GITHUB TROPHIES -->
-## 🏆 GitHub Trophies
 
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=karim2762&theme=darkhub&no-frame=true&no-bg=false&margin-w=6&row=1" alt="GitHub Trophies" />
-</div>
 
 ---
 
