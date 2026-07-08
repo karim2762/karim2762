@@ -1,0 +1,246 @@
+//@version=5
+indicator("Multi-Timeframe Trend Table (Structure + EMA + ATR/Vol Filter)", overlay=true, max_labels_count=500)
+
+// ───────────────────────────── INPUTS ─────────────────────────────
+fastLen   = input.int(20, "Fast EMA Length", minval=1, group="EMA Filter")
+slowLen   = input.int(50, "Slow EMA Length", minval=1, group="EMA Filter")
+pivotLen  = input.int(5,  "Structure Pivot Length (bars each side)", minval=1, group="Market Structure",
+     tooltip="Higher = fewer, more significant swing points. Lower = more sensitive, more noise.")
+
+// ── NEW: Noise filters ──
+useAtrFilter = input.bool(true, "Filter breaks by ATR (reduce noise)", group="Noise Filter")
+atrLen       = input.int(14, "ATR Length", minval=1, group="Noise Filter")
+atrMult      = input.float(0.25, "ATR Break Multiplier", minval=0, step=0.05, group="Noise Filter",
+     tooltip="Close must break the swing level by more than this many ATRs to count as a valid BOS/CHoCH. Higher = fewer, stronger signals.")
+
+useVolFilter = input.bool(true, "Filter breaks by Volume", group="Noise Filter")
+volLen       = input.int(20, "Volume MA Length", minval=1, group="Noise Filter")
+volMult      = input.float(1.2, "Volume Multiplier", minval=0, step=0.1, group="Noise Filter",
+     tooltip="Breakout bar's volume must exceed (Volume MA x this factor) to count as valid. Higher = fewer, higher-conviction signals.")
+
+// ── NEW: Alerts (all OFF by default) ──
+enableConfluenceAlert = input.bool(false, "Enable Confluence Alert", group="Alerts")
+confluenceThreshold    = input.int(5, "Confluence Threshold (TFs required, out of 6)", minval=1, maxval=6, group="Alerts",
+     tooltip="e.g. 5 = alert when 5 of 6 timeframes agree bullish (or bearish).")
+enableStructureAlerts  = input.bool(false, "Enable Per-Timeframe BOS/CHoCH Alerts", group="Alerts")
+alertOnBosToo          = input.bool(false, "Also alert on BOS (continuation), not just CHoCH", group="Alerts",
+     tooltip="Off = only alert on CHoCH (trend change). On = also alert on BOS (trend continuation), which fires more often.")
+
+tablePosInput   = input.string("Top Right", "Table Position", options=["Top Left", "Top Right", "Bottom Left", "Bottom Right"], group="Display")
+tableSize       = input.string("Normal", "Table Text Size", options=["Small", "Normal", "Large"], group="Display")
+showEmaColumn   = input.bool(false, "Show EMA column (optional)", group="Display")
+showStructCol   = input.bool(false, "Show Structure column (optional)", group="Display")
+showLegend      = input.bool(true, "Show icon legend row", group="Display")
+showLabelsOnChart = input.bool(false, "Show BOS/CHoCH labels on chart", group="Display")
+
+bullColor    = input.color(color.new(#2e7d32, 0),  "Strong Bull Color", group="Colors")
+bullWeak     = input.color(color.new(#2e7d32, 55), "Weak Bull Color",   group="Colors")
+bearColor    = input.color(color.new(#c62828, 0),  "Strong Bear Color", group="Colors")
+bearWeak     = input.color(color.new(#c62828, 55), "Weak Bear Color",   group="Colors")
+neutralColor = input.color(color.new(#616161, 20), "Neutral Color",     group="Colors")
+headerColor  = input.color(color.new(#1a237e, 0), "Header Color", group="Colors")
+labelBg      = input.color(color.new(#1e1e2e, 0), "Label Background", group="Colors")
+textColor    = input.color(color.white, "Text Color", group="Colors")
+
+txtSize = tableSize == "Small" ? size.small : tableSize == "Large" ? size.large : size.normal
+
+// ───────────────────────── EMA TREND (filter) ─────────────────────────
+f_emaTrend() =>
+    ta.ema(close, fastLen) > ta.ema(close, slowLen)
+
+// ───────────────────── MARKET STRUCTURE (BOS / CHoCH) ─────────────────────
+// Returns: structural trend (1 = bullish, -1 = bearish, 0 = undefined yet)
+// and a short tag for the last structural event.
+// Break validity is now filtered by ATR distance AND volume expansion
+// (both toggleable) to cut down on noise-driven false BOS/CHoCH prints.
+f_structure(len) =>
+    var float swingHigh = na
+    var float swingLow  = na
+    var int   trend     = 0
+    var string tag      = "—"
+
+    ph = ta.pivothigh(high, len, len)
+    pl = ta.pivotlow(low, len, len)
+
+    if not na(ph)
+        swingHigh := ph
+    if not na(pl)
+        swingLow := pl
+
+    atrVal = ta.atr(atrLen)
+    avgVol = ta.sma(volume, volLen)
+
+    atrOkBull = not useAtrFilter or (not na(swingHigh) and close > swingHigh + atrVal * atrMult)
+    atrOkBear = not useAtrFilter or (not na(swingLow)  and close < swingLow  - atrVal * atrMult)
+    volOk     = not useVolFilter or (volume > avgVol * volMult)
+
+    bullBreak = not na(swingHigh) and close > swingHigh and atrOkBull and volOk
+    bearBreak = not na(swingLow)  and close < swingLow  and atrOkBear and volOk
+
+    if bullBreak
+        tag   := trend <= 0 ? "CHoCH▲" : "BOS▲"
+        trend := 1
+        swingHigh := na   // consume the level so it can't re-trigger every bar
+    if bearBreak
+        tag   := trend >= 0 ? "CHoCH▼" : "BOS▼"
+        trend := -1
+        swingLow := na
+
+    [trend, tag, bullBreak, bearBreak]
+
+// ─────────────────────── COMBINE STRUCTURE + EMA ───────────────────────
+// Structure = primary signal (defines the actual trend once a BOS/CHoCH exists).
+// EMA        = confirmation filter (agreement = "Strong", disagreement = "Weak").
+// If structure hasn't printed a break yet, fall back to EMA only.
+f_finalBullish(structTrend, emaUp) =>
+    structTrend == 0 ? emaUp : structTrend == 1
+
+// Strength is now ALWAYS visible in the label (icon-coded), not hidden behind a toggle.
+// ▲▲ / ▼▼  = Strong (structure + EMA agree)
+// ▲  / ▼   = Weak   (structure says one way, EMA disagrees)
+// ~        = No confirmed structure break yet, using EMA only
+f_finalLabel(structTrend, emaUp) =>
+    string lbl = na
+    if structTrend == 0
+        lbl := emaUp ? "~ Bull" : "~ Bear"
+    else if structTrend == 1
+        lbl := emaUp ? "Bull ▲▲" : "Bull ▲"
+    else
+        lbl := emaUp ? "Bear ▼" : "Bear ▼▼"
+    lbl
+
+f_finalColor(structTrend, emaUp) =>
+    color c = na
+    if structTrend == 0
+        c := neutralColor
+    else if structTrend == 1
+        c := emaUp ? bullColor : bullWeak
+    else
+        c := emaUp ? bearWeak : bearColor
+    c
+
+// ───────────────────────────── PER-TF DATA ─────────────────────────────
+emaUp5m  = request.security(syminfo.tickerid, "5",  f_emaTrend(), lookahead=barmerge.lookahead_off)
+emaUp15m = request.security(syminfo.tickerid, "15", f_emaTrend(), lookahead=barmerge.lookahead_off)
+emaUp30m = request.security(syminfo.tickerid, "30", f_emaTrend(), lookahead=barmerge.lookahead_off)
+emaUp1H  = request.security(syminfo.tickerid, "60", f_emaTrend(), lookahead=barmerge.lookahead_off)
+emaUp4H  = request.security(syminfo.tickerid, "240",f_emaTrend(), lookahead=barmerge.lookahead_off)
+emaUp1D  = request.security(syminfo.tickerid, "D",  f_emaTrend(), lookahead=barmerge.lookahead_off)
+
+[struct5m,  tag5m,  bu5m,  be5m]  = request.security(syminfo.tickerid, "5",   f_structure(pivotLen), lookahead=barmerge.lookahead_off)
+[struct15m, tag15m, bu15m, be15m] = request.security(syminfo.tickerid, "15",  f_structure(pivotLen), lookahead=barmerge.lookahead_off)
+[struct30m, tag30m, bu30m, be30m] = request.security(syminfo.tickerid, "30",  f_structure(pivotLen), lookahead=barmerge.lookahead_off)
+[struct1H,  tag1H,  bu1H,  be1H]  = request.security(syminfo.tickerid, "60",  f_structure(pivotLen), lookahead=barmerge.lookahead_off)
+[struct4H,  tag4H,  bu4H,  be4H]  = request.security(syminfo.tickerid, "240", f_structure(pivotLen), lookahead=barmerge.lookahead_off)
+[struct1D,  tag1D,  bu1D,  be1D]  = request.security(syminfo.tickerid, "D",   f_structure(pivotLen), lookahead=barmerge.lookahead_off)
+
+// ─────────────────────── CONFLUENCE SCORE (how many TFs are bullish) ───────────────────────
+bullCount = (f_finalBullish(struct5m, emaUp5m) ? 1 : 0) + (f_finalBullish(struct15m, emaUp15m) ? 1 : 0) +
+     (f_finalBullish(struct30m, emaUp30m) ? 1 : 0) + (f_finalBullish(struct1H, emaUp1H) ? 1 : 0) +
+     (f_finalBullish(struct4H, emaUp4H) ? 1 : 0) + (f_finalBullish(struct1D, emaUp1D) ? 1 : 0)
+confluenceColor = bullCount >= 5 ? bullColor : bullCount <= 1 ? bearColor : bullCount >= 4 ? bullWeak : bullCount <= 2 ? bearWeak : neutralColor
+
+// ─────────────────────── ALERTS ───────────────────────
+// Confluence alerts: fire when N of 6 timeframes agree (threshold set above, e.g. 5/6).
+// Both are OFF by default — enable "Enable Confluence Alert" in the Alerts group to use.
+confluenceBullFire = enableConfluenceAlert and bullCount >= confluenceThreshold
+confluenceBearFire = enableConfluenceAlert and (6 - bullCount) >= confluenceThreshold
+
+alertcondition(confluenceBullFire, title="Bullish Confluence", message="Bullish confluence: {{ticker}} — threshold reached on multiple timeframes")
+alertcondition(confluenceBearFire, title="Bearish Confluence", message="Bearish confluence: {{ticker}} — threshold reached on multiple timeframes")
+
+if confluenceBullFire
+    alert("Bullish confluence: " + str.tostring(bullCount) + "/6 timeframes bullish on " + syminfo.ticker, alert.freq_once_per_bar_close)
+if confluenceBearFire
+    alert("Bearish confluence: " + str.tostring(6 - bullCount) + "/6 timeframes bearish on " + syminfo.ticker, alert.freq_once_per_bar_close)
+
+// Per-timeframe BOS/CHoCH alerts. OFF by default — enable "Enable Per-Timeframe BOS/CHoCH Alerts".
+// By default only CHoCH (trend change) fires; toggle "Also alert on BOS" to include continuations too.
+f_alertStruct(tfName, bullBreak, bearBreak, tag) =>
+    if enableStructureAlerts and bullBreak and (alertOnBosToo or tag == "CHoCH▲")
+        alert(syminfo.ticker + " " + tfName + " " + tag, alert.freq_once_per_bar_close)
+    if enableStructureAlerts and bearBreak and (alertOnBosToo or tag == "CHoCH▼")
+        alert(syminfo.ticker + " " + tfName + " " + tag, alert.freq_once_per_bar_close)
+
+f_alertStruct("5m",  bu5m,  be5m,  tag5m)
+f_alertStruct("15m", bu15m, be15m, tag15m)
+f_alertStruct("30m", bu30m, be30m, tag30m)
+f_alertStruct("1H",  bu1H,  be1H,  tag1H)
+f_alertStruct("4H",  bu4H,  be4H,  tag4H)
+f_alertStruct("1D",  bu1D,  be1D,  tag1D)
+
+// Static alertcondition versions too, for anyone who prefers picking from the Alert dialog
+// dropdown rather than using "Any alert() function call".
+anyBullChoch = (bu5m and tag5m == "CHoCH▲") or (bu15m and tag15m == "CHoCH▲") or (bu30m and tag30m == "CHoCH▲") or
+     (bu1H and tag1H == "CHoCH▲") or (bu4H and tag4H == "CHoCH▲") or (bu1D and tag1D == "CHoCH▲")
+anyBearChoch = (be5m and tag5m == "CHoCH▼") or (be15m and tag15m == "CHoCH▼") or (be30m and tag30m == "CHoCH▼") or
+     (be1H and tag1H == "CHoCH▼") or (be4H and tag4H == "CHoCH▼") or (be1D and tag1D == "CHoCH▼")
+
+alertcondition(anyBullChoch, title="Any TF Bullish CHoCH", message="Bullish Change of Character on a timeframe")
+alertcondition(anyBearChoch, title="Any TF Bearish CHoCH", message="Bearish Change of Character on a timeframe")
+
+// ─────────────────────── DYNAMIC COLUMN LAYOUT ───────────────────────
+// Column 0 is always TF. Trend is always the last column.
+// EMA / Structure columns only exist if their toggle is on.
+tfCol = 0
+int emaCol = na
+int structCol = na
+nextCol = 1
+if showEmaColumn
+    emaCol := nextCol
+    nextCol += 1
+if showStructCol
+    structCol := nextCol
+    nextCol += 1
+trendCol = nextCol
+colCount = trendCol + 1
+
+posMap = tablePosInput == "Top Left" ? position.top_left : tablePosInput == "Top Right" ? position.top_right : tablePosInput == "Bottom Left" ? position.bottom_left : position.bottom_right
+totalRows = 8 + (showLegend ? 1 : 0)   // header + confluence row + 6 TF rows (+ optional legend row)
+var table trendTable = table.new(posMap, colCount, totalRows, border_width=1, border_color=color.gray)
+
+f_row(rowIdx, tfName, emaUp, structTrend, tag) =>
+    table.cell(trendTable, tfCol, rowIdx, tfName, text_color=textColor, bgcolor=labelBg, text_size=txtSize)
+    if showEmaColumn
+        table.cell(trendTable, emaCol, rowIdx, emaUp ? "Bull" : "Bear", text_color=textColor, bgcolor=emaUp ? bullColor : bearColor, text_size=txtSize)
+    if showStructCol
+        table.cell(trendTable, structCol, rowIdx, tag, text_color=textColor, bgcolor=labelBg, text_size=txtSize)
+    table.cell(trendTable, trendCol, rowIdx, f_finalLabel(structTrend, emaUp), text_color=textColor, bgcolor=f_finalColor(structTrend, emaUp), text_size=txtSize)
+
+if barstate.islast
+    // Header row
+    table.cell(trendTable, tfCol, 0, "TF", text_color=textColor, bgcolor=headerColor, text_size=txtSize)
+    if showEmaColumn
+        table.cell(trendTable, emaCol, 0, "EMA", text_color=textColor, bgcolor=headerColor, text_size=txtSize)
+    if showStructCol
+        table.cell(trendTable, structCol, 0, "Structure", text_color=textColor, bgcolor=headerColor, text_size=txtSize)
+    table.cell(trendTable, trendCol, 0, "Trend", text_color=textColor, bgcolor=headerColor, text_size=txtSize)
+
+    // Confluence summary row
+    table.cell(trendTable, tfCol, 1, "Confluence", text_color=textColor, bgcolor=labelBg, text_size=txtSize)
+    if showEmaColumn
+        table.cell(trendTable, emaCol, 1, "", bgcolor=labelBg)
+    if showStructCol
+        table.cell(trendTable, structCol, 1, "", bgcolor=labelBg)
+    table.cell(trendTable, trendCol, 1, str.tostring(bullCount) + "/6 Bull", text_color=textColor, bgcolor=confluenceColor, text_size=txtSize)
+
+    f_row(2, "5m",  emaUp5m,  struct5m,  tag5m)
+    f_row(3, "15m", emaUp15m, struct15m, tag15m)
+    f_row(4, "30m", emaUp30m, struct30m, tag30m)
+    f_row(5, "1H",  emaUp1H,  struct1H,  tag1H)
+    f_row(6, "4H",  emaUp4H,  struct4H,  tag4H)
+    f_row(7, "1D",  emaUp1D,  struct1D,  tag1D)
+
+    if showLegend
+        legendTxt = "▲▲ Strong  ▲ Weak  ~ No break yet"
+        table.cell(trendTable, tfCol, 8, legendTxt, text_color=textColor, bgcolor=labelBg, text_size=size.tiny)
+        if colCount > 1
+            table.merge_cells(trendTable, tfCol, 8, colCount - 1, 8)
+
+// ───────────────────── OPTIONAL: BOS/CHoCH LABELS ON CURRENT CHART TF ─────────────────────
+[curTrend, curTag, curBullBreak, curBearBreak] = f_structure(pivotLen)
+
+if showLabelsOnChart and curBullBreak
+    label.new(bar_index, low, curTag, style=label.style_label_up, color=curTag == "CHoCH▲" ? bullColor : bullWeak, textcolor=color.white, size=size.small)
+if showLabelsOnChart and curBearBreak
+    label.new(bar_index, high, curTag, style=label.style_label_down, color=curTag == "CHoCH▼" ? bearColor : bearWeak, textcolor=color.white, size=size.small)
